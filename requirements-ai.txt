@@ -1,0 +1,13 @@
+# «Мозги» FaceLock: распознавание лиц.
+#
+#   python -m pip install -r requirements-ai.txt
+#
+# TensorFlow НЕ нужен: DeepFace 0.0.103 считает Facenet512 через onnxruntime
+# (модель скачивается в ONNX, ~94 МБ, при первом запуске).
+#
+# werkzeug обязателен: DeepFace импортирует его, но не указывает в зависимостях.
+# Без него падает с ModuleNotFoundError: No module named 'werkzeug'.
+#
+# Если установка падает — не руками, а скриптом: python install_ai.py
+deepface>=0.0.103
+werkzeug>=3.0

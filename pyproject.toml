@@ -1,0 +1,47 @@
+[project]
+name = "facelock"
+version = "1.0.0"
+description = "Блокировка экрана компьютера, когда в кадре появляется чужое лицо"
+readme = "README.md"
+requires-python = ">=3.10"
+# база: интерфейс, камера, математика — приложение запускается без ИИ
+dependencies = [
+    "flet[all]==1.0.5",
+    "opencv-python>=4.9.0.80",
+    "numpy>=1.24",
+    "scipy>=1.11",
+    "Pillow>=10.0",
+]
+
+# распознавание лиц: pip install -e ".[ai]"
+# TensorFlow не нужен — Facenet512 считается через onnxruntime.
+# werkzeug — скрытая зависимость DeepFace 0.0.103.
+[project.optional-dependencies]
+ai = [
+    "deepface>=0.0.103",
+    "werkzeug>=3.0",
+]
+tf = [
+    "tensorflow>=2.16.1",
+    "tf-keras>=2.16",
+]
+
+[tool.flet]
+product = "FaceLock"
+org = "ru.vnigas"
+company = "FaceLock"
+copyright = "Copyright (c) 2026 vnigas"
+build_number = 1
+build_version = "1.0.0"
+# доступ к камере: добавляет NSCameraUsageDescription и entitlements для macOS
+permissions = ["camera"]
+
+[tool.flet.app]
+module = "main"
+
+[tool.flet.linux]
+categories = ["Utility", "Security"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"

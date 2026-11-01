@@ -1,0 +1,18 @@
+# Базовые зависимости FaceLock: интерфейс, камера, математика.
+# Ставится быстро и всегда: приложение запускается, даже если ИИ ещё не стоит.
+#
+#   python -m pip install -r requirements.txt
+#
+# [all] обязателен: кроме ядра flet нужны flet-cli, flet-desktop (окно)
+# и flet-web (запуск в браузере) — иначе запуск падает с
+# ModuleNotFoundError: No module named 'flet_desktop' / 'flet_web'
+flet[all]==1.0.5
+
+# Камера и вычисления
+opencv-python>=4.9.0.80
+numpy>=1.24
+scipy>=1.11
+Pillow>=10.0
+
+# Распознавание лиц ставится отдельно: requirements-ai.txt
+# (DeepFace + TensorFlow весят ~1 ГБ и требуют Python 3.10–3.13)

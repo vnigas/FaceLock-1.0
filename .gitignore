@@ -1,0 +1,23 @@
+# данные приложения
+data/
+block_users/
+settings.json
+
+# сборочные каталоги Flet
+.flet/
+build/
+dist/
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+*.egg-info/
+
+# служебное
+.DS_Store
+my_photo.jpg
+sandbox/
+FaceLock_roadmap.md
+n8n/
